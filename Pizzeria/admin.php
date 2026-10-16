@@ -73,8 +73,8 @@ function readCsv(string $path): array {
     if (!file_exists($path)) return [];
     $rows = [];
     $fh   = fopen($path, 'r');
-    $headers = fgetcsv($fh);
-    while (($row = fgetcsv($fh)) !== false) {
+    $headers = fgetcsv($fh, null, ',', '"', '\\');
+    while (($row = fgetcsv($fh, null, ',', '"', '\\')) !== false) {
         if ($headers && count($headers) === count($row)) {
             $rows[] = array_combine($headers, $row);
         }

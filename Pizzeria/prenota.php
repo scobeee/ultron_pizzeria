@@ -77,7 +77,7 @@ if ($fh === false) {
 }
 
 if ($isNew) {
-    fputcsv($fh, ['id', 'timestamp', 'nome', 'email', 'telefono', 'data', 'orario', 'persone', 'occasione', 'note']);
+    fputcsv($fh, ['id', 'timestamp', 'nome', 'email', 'telefono', 'data', 'orario', 'persone', 'occasione', 'note'], ',', '"', '\\');
 }
 
 $id = uniqid('PRN-', true);
@@ -92,7 +92,7 @@ fputcsv($fh, [
     $guests,
     $occasion,
     $notes,
-]);
+], ',', '"', '\\');
 fclose($fh);
 
 // ─── Risposta ─────────────────────────────────────────────────

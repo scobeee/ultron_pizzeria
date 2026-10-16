@@ -105,7 +105,7 @@ if ($fh === false) {
 }
 
 if ($isNew) {
-    fputcsv($fh, ['id', 'timestamp', 'articoli', 'totale_eur', 'stato']);
+    fputcsv($fh, ['id', 'timestamp', 'articoli', 'totale_eur', 'stato'], ',', '"', '\\');
 }
 
 $id = uniqid('ORD-', true);
@@ -120,7 +120,7 @@ fputcsv($fh, [
     $articoliStr,
     number_format($total, 2, '.', ''),
     'ricevuto',
-]);
+], ',', '"', '\\');
 fclose($fh);
 
 // ─── Risposta ─────────────────────────────────────────────────
